@@ -1,3 +1,7 @@
+;;; init.el --- initial setting
+;;; Commentary:
+;;; Code:
+
 ; cask
 (require 'cask "~/.cask/cask.el")
 (setq user_bundle (cask-initialize "~/.emacs.d"))
@@ -7,3 +11,5 @@
 
 (require 'init-loader)
 (init-loader-load "~/.emacs.d/inits")
+
+;;; init.el ends here
