@@ -51,6 +51,11 @@
 (define-key global-map (kbd "C-c i")   'helm-imenu)
 (define-key global-map (kbd "C-x b")   'helm-buffers-list)
 
+; Linum
+(require 'linum)
+(global-linum-mode 1)
+(setq linum-format "%4d ")
+
 ; Revive
 (autoload 'save-current-configuration "revive" "Save status" t)
 (autoload 'resume "revive" "Resume Emacs" t)
