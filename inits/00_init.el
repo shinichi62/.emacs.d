@@ -2,7 +2,10 @@
 ;;; Commentary:
 ;;; Code:
 
-; encoding
+; Color-theme
+(load-theme 'manoj-dark t)
+
+; Encoding
 (set-language-environment "Japanese")
 (prefer-coding-system 'utf-8-unix)
 ;(prefer-coding-system 'shift_jis)
@@ -20,6 +23,19 @@
 (global-set-key (kbd "M-g") 'goto-line)
 (define-key global-map (kbd "\C-cl") 'toggle-truncate-lines)
 
+; Auto-complete
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
+(ac-config-default)
+(setq ac-use-menu-map t)
+
+; Elscreen
+; https://github.com/knu/elscreen
+(elscreen-start)
+
+; Flycheck
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
 ; Helm
 (require 'helm-config)
 (helm-mode 1)
@@ -35,14 +51,13 @@
 (define-key global-map (kbd "C-c i")   'helm-imenu)
 (define-key global-map (kbd "C-x b")   'helm-buffers-list)
 
-; Auto-complete
-(require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
-(ac-config-default)
-(setq ac-use-menu-map t)
-
-; Flycheck
-(add-hook 'after-init-hook #'global-flycheck-mode)
+; Revive
+(autoload 'save-current-configuration "revive" "Save status" t)
+(autoload 'resume "revive" "Resume Emacs" t)
+(autoload 'wipe "revive" "Wipe emacs" t)
+(define-key global-map (kbd "C-x S") 'save-current-configuration)
+(define-key global-map (kbd "C-x F") 'resume)
+(add-hook 'kill-emacs-hook 'save-current-configuration)
 
 ; Tramp
 ; C-x C-f /ssh:user@host:path (for linux)
