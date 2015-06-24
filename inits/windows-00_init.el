@@ -20,6 +20,6 @@
 
 ; Path
 (setenv "PATH" "C:\\cygwin64\\bin")
-(setq grep-find-command "find . -type d -path '*CVS*' -prune -o -print0 |xargs -0 grep -niH ")
+(setq grep-find-command "find . -type f -print0 |xargs -0 grep -niH ")
 
 ;;; windows-00_init.el ends here
