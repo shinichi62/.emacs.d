@@ -2,7 +2,10 @@
 ;;; Commentary:
 ;;; Code:
 
-; cask
+; Proxy
+(setq url-proxy-services '("http" . ""))
+
+; Cask
 (require 'cask "~/.cask/cask.el")
 (setq user_bundle (cask-initialize "~/.emacs.d"))
 (cask-install user_bundle)
