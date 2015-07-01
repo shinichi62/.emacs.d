@@ -68,6 +68,9 @@
 (define-key global-map (kbd "C-c i")   'helm-imenu)
 (define-key global-map (kbd "C-x b")   'helm-buffers-list)
 
+(define-key helm-map (kbd "C-h") 'delete-backward-char)
+(define-key helm-find-files-map (kbd "C-h") 'delete-backward-char)
+
 ; Linum
 (require 'linum)
 (global-linum-mode 1)
